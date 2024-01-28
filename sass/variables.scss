@@ -1,0 +1,365 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+}
+
+@import './media_queries.scss';
+
+// Colors
+$rock      :#a50822;
+$scissor   :#b39d00;
+$lizard    :#8600b1;
+$spock     :#1fa7ab;
+$paper     :#2f60bb;
+
+// Themes
+
+$Light-background:#174aa5;
+$Light-txt1         :white;
+$Light-txt2         :black;
+$Light-buttons_txt  :transparent;
+$Light-buttons_bkg  :white;
+$Light-animation1   :#0980ffd9;
+$Light-animation2   :#063c75c4;
+$Light-animation3   :#04274dc4;
+
+$Dark-background   :#111;
+$Dark-txt1         :white;
+$Dark-txt2         :#0b86a3;
+$Dark-buttons_txt  :transparent;
+$Dark-buttons_bkg  :#0b86a3;
+$Dark-animation1   :#41baf1cc;
+$Dark-animation2   :#318bb4cc;
+$Dark-animation3   :#225e7acc;
+
+$Custom-background   :#530e9c;
+$Custom-txt1         :#c2ff36;
+$Custom-txt2         :#000000;
+$Custom-buttons_txt  :transparent;
+$Custom-buttons_bkg  :#0b86a3;
+$Custom-animation1   :#87b815;
+$Custom-animation2   :#08753f;
+$Custom-animation3   :#0c5802;
+
+
+.Light{
+    background-color: $Light-background;
+
+
+    .score{
+        border: 1px solid $Light-txt1;
+
+        .score-box{
+            background-color: white;
+
+            h5,h3{
+                color: $Light-txt2;
+            }
+        }
+    }
+
+    .main .game-result{
+        .up {
+            h4{
+                color: $Light-txt1;
+            }
+
+            .left,.right{
+                .player, .pc{
+                    // colores de las Animaciones
+                    background-color: $Light-animation1;
+    
+                    div{
+                        background-color: $Light-animation2;
+    
+                        label{
+                            background-color: $Light-animation3;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .down{
+            #result{
+                color: $Light-txt1;
+            }
+
+            button{
+                color: $Light-background;
+                background-color: $Light-txt1;
+            }
+        }
+    }
+
+    .menu{
+        .main,.options{
+            color: $Light-txt1;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+
+        .options {
+            div{
+                h3{
+                    color: $Light-txt1;
+                }
+    
+                button svg path{
+                    fill: $Light-txt2;
+                }
+            }
+        }
+
+        button{
+            color: $Light-txt1;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+    }
+
+    .buttons button{
+        color: $Light-txt1;
+        background-color: transparent;
+        border: 2px solid $Light-txt1;
+    }
+
+    .rules{
+        background-color: $Light-background;
+
+        h2{
+            color: $Light-txt1;
+        }
+
+        button{
+            color: $Light-txt1;
+            background-color: transparent;
+            border: 2px solid transparent;
+        }
+    }
+}
+
+.Dark{
+    background-color: $Dark-background;
+
+    .score{
+        border: 1px solid $Dark-txt2;
+
+        .version svg g use {
+            fill: $Dark-txt2;
+        }
+        .score-box{
+            background-color: $Dark-buttons_bkg;
+
+            h5,h3{
+                color: $Dark-txt1;
+            }
+        }
+    }
+
+    .main .game-choice{
+        .version_original .background svg path,
+        .version_sheldon .background svg path{
+            stroke: $Dark-txt2;
+        }
+    }
+
+    .main .game-result{
+        .up {
+            h4{
+                color: $Dark-txt1;
+            }
+
+            .left,.right{
+                .player, .pc{
+                    // colores de las Animaciones
+                    background-color: $Dark-animation1;
+    
+                    div{
+                        background-color: $Dark-animation2;
+    
+                        label{
+                            background-color: $Dark-animation3;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .down{
+            #result{
+                color: $Dark-txt1;
+            }
+
+            button{
+                color: $Dark-txt1;
+                background-color: $Dark-txt2;
+            }
+        }
+    }
+
+    .menu{
+        .main,.options{
+            color: $Dark-txt1;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+
+        .options {
+            div{
+                h3{
+                    color: $Dark-txt1;
+                }
+    
+                button svg path{
+                    fill: $Dark-txt2;
+                }
+            }
+        }
+
+        button{
+            color: $Dark-txt1;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+    }
+
+    .buttons button{
+        color: $Dark-txt1;
+        background-color: transparent;
+        border: 2px solid $Dark-txt2;
+    }
+
+    .rules{
+        background-color: $Dark-background;
+
+        h2{
+            color: $Dark-txt1;
+        }
+
+        button{
+            color: $Dark-txt1;
+            background-color: transparent;
+            border: 2px solid transparent;
+        }
+
+    }
+}
+
+.Custom{
+    background-color: $Custom-background;
+    .App{
+        @include querie-s{
+            border: 1px solid $Custom-txt1;
+        }
+    }
+
+    .score{
+        border: 1px solid $Custom-txt2;
+
+        .version svg g use {
+            fill: $Custom-txt1;
+        }
+        .score-box{
+            background-color: $Custom-buttons_bkg;
+
+            h5,h3{
+                color: $Custom-txt1;
+            }
+        }
+    }
+
+    .main .game-choice{
+        .version_original .background svg path,
+        .version_sheldon .background svg path{
+            stroke: $Custom-txt2;
+        }
+    }
+
+    .main .game-result{
+        .up {
+            h4{
+                color: $Custom-txt1;
+            }
+
+            .left,.right{
+                .player, .pc{
+                    // colores de las Animaciones
+                    background-color: $Custom-animation1;
+    
+                    div{
+                        background-color: $Custom-animation2;
+    
+                        label{
+                            background-color: $Custom-animation3;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .down{
+            #result{
+                color: $Custom-txt1;
+            }
+
+            button{
+                color: $Custom-txt2;
+                background-color: $Custom-txt1;
+            }
+        }
+    }
+
+    .menu{
+        .main,.options{
+            color: $Custom-txt1;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+
+        .options {
+            div{
+                h3{
+                    color: $Custom-txt1;
+                }
+    
+                button svg path{
+                    fill: $Custom-txt2;
+                }
+            }
+        }
+
+        button{
+            color: $Custom-txt1;
+            background-color: transparent;
+            border: 1px solid transparent;
+        }
+    }
+
+    .buttons button{
+        color: $Custom-txt1;
+        background-color: transparent;
+        border: 2px solid $Custom-txt2;
+    }
+
+    .rules{
+        background-color: $Custom-background;
+
+        h2{
+            color: $Custom-txt1;
+        }
+
+        button{
+            color: $Custom-txt1;
+            background-color: transparent;
+            border: 2px solid transparent;
+        }
+
+    }
+}

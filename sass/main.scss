@@ -1,0 +1,617 @@
+@import './variables.scss';
+@import './media_queries.scss';
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.App{
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    .score{
+        //flex
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        min-width: 300px;
+        padding: 12px;
+        border-radius: 6px;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+
+            svg{
+                scale: .7;
+            }
+        }
+
+        .score-box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-height: 90px;
+            padding: 12px 18px;
+            border-radius: 6px;
+
+            h5{
+                font-size: 1.2rem;
+            }
+
+            h3{
+                font-size: 4rem;
+            }
+        }
+    }
+
+    .main{
+        //grid
+        display: none;
+        width: 100%;
+        height: 100%;
+        grid-template-rows: auto;
+        gap: 12px;
+        justify-content: center;
+        justify-items: center;
+        padding: 12px;
+
+        .game-choice{
+            // flex
+            display: flex;
+            width: 100%;
+            height: 100%;
+
+            .version_original{
+                // grid
+                display: none;
+                position: relative;
+                grid-template-areas:
+                "a b"
+                "c c";
+                width: 100%;
+                height: 85%;
+                justify-items: center;
+                align-items: end;
+                gap: 48px;
+
+                div{
+                    position: absolute;
+                    left: 4px;
+                    top: 77px;
+    
+                    svg{
+                        scale: 0.8;
+                    }
+                }
+    
+                
+                button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 16px 28px;
+                    scale: .9;
+                    box-shadow: inset 0px 5px 2px 2px #5d5d5d61;
+                    border: 16px solid transparent;
+                    border-radius: 50%;
+                }
+
+                .rock{
+                    grid-area: c;
+                    align-self: center;
+                }
+            }
+
+            .version_sheldon{
+                //grid
+                display: none;
+                position: relative;
+                grid-template-areas: 
+                "a a a"
+                "c z d"
+                "b b b";
+                grid-template-columns: 110px 110px 110px;
+                grid-template-rows: 130px 120px 120px;
+                row-gap: 18px;
+                padding: 0;
+                margin: 0;
+
+                .background{
+                    position: absolute;
+                    left: 4px;
+                    top: 77px;
+    
+                    svg{
+                        scale: 0.8;
+                    }
+                }
+
+                button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 110px;
+                    height: 110px;
+                    scale: 0.9;
+                    box-shadow: inset 0px 5px 2px 2px #5d5d5d61;
+                    border: 16px solid transparent;
+                    border-radius: 50%;
+
+                    svg{
+
+                        width: 65%;
+                        height: 80%;
+                        scale: .9;
+                    }
+                }
+
+                .up{
+                    grid-area: a;
+                    display: flex;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    justify-content: center;
+                }
+
+                .down{
+                    grid-area: b;
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+                    gap: 60px;
+                    justify-content: center;
+                }
+
+                .rock{
+                    svg{
+                        height: 65%;
+                    }
+                }
+
+                .paper{
+                    grid-area: d;
+                }
+
+                .spock{
+                    grid-area: c;
+
+                    svg{
+                        width: 55%;
+                    }
+                }
+
+                .scissors{
+                    grid-area: a;
+                    bottom: -40px;
+                    justify-self: center;
+                    position: absolute;
+                }
+
+                .lizard{
+                    svg{
+                        width: 80%;
+                    }
+                }
+
+
+            }
+
+            .version_original,
+            .version_sheldon{
+                button{
+                    cursor: pointer;
+                    path{
+                        fill: #000000d6;
+                    }
+                }
+            }
+
+        }
+
+        .game-result{
+            height: 100%;
+            display: none;
+            grid-template-areas: 
+            "uper"
+            "botom";
+            grid-template-rows: 45% auto;
+            grid-template-columns: 100%;
+
+            .up{
+                grid-area: uper;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 50% auto;
+                grid-template-areas: 
+                "left  right"
+                "txt-l txt-r";
+                width: 90%;
+                justify-items: center;
+                gap: 40px;
+
+                    h4{
+                        width: 100%;
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+
+                    span{
+                        position: relative;
+
+                        button{
+                            // flex
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 120px;
+                            height: 120px;
+                            scale: 1;
+                            box-shadow: inset 0px 5px 2px 2px #5d5d5d61;
+                            border-radius: 50%;
+    
+                            svg{
+                                display: flex;
+                                path{
+                                    fill: #000000d6;
+                                }
+                                
+                            }
+
+                            
+                        }
+                   
+                        .player, .pc{
+                            position: absolute;
+                            display: none;
+                            align-items: center;
+                            justify-content: center;
+                            width: 90px;
+                            height: 90px;
+                            left: 12.5%;
+                            top: 16%;
+                            border-radius: 50%;
+
+
+                            div{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 87%;
+                                height: 87%;
+                                border-radius: 50%;
+
+                                label{
+                                    width: 87%;
+                                    height: 87%;
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+
+                        .win{
+                            animation: win .6s ease infinite;
+                            @keyframes win {
+                                0%{
+                                    width: 70px;
+                                    height: 70px;
+                                    left: 20.5%;
+                                    top: 26%;
+                                }
+
+                                50%{
+                                    width: 130px;
+                                    height: 130px;
+                                    left: -4.5%;
+                                    top: -3.5%;
+                                }
+
+                                100%{
+                                    width: 70px;
+                                    height: 70px;
+                                    left: 20.5%;
+                                    top: 26%;
+                                }
+                            }
+                        }
+
+                        .win2 svg path{
+                            animation: win2 .6s ease infinite;
+                            @keyframes win2 {
+                                0%{
+                                    fill: #000000d6;
+                                }
+
+                                50%{
+                                    fill: #a9c302d6;
+                                }
+
+                                100%{
+                                    fill: #000000d6;
+                                }
+                            }
+                        }
+                    }
+
+                    .left{
+                        grid-area: left;
+                    }
+
+                    .right{
+                        grid-area: right;
+                    }
+
+                    .left-txt{
+                        grid-area: txt-l;
+                    }
+
+                    .right-txt{
+                        grid-area: txt-r;
+                    }
+
+                    .player, .pc{
+                        background-color: white;
+                        scale: 1.4;
+                    }
+
+            }
+
+            .down{
+                grid-area: botom;
+                width: 100%;
+                height: 100%;
+                // flex
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 14px;
+                padding: 0px 18px;
+
+                h2{
+                    font-size: 4rem;
+                    font-weight: bold;
+                    color: white;
+                }
+
+                button{
+                    width: 100%;
+                    font-size: 2rem;
+                    padding: 12px 0;
+                    border: none;
+                    border-radius: 8px;
+                }
+            }
+
+        }
+
+    }
+
+    .menu{
+        //flex
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        max-height: 650px;
+
+        .main,
+        .options{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+
+            button{
+                width: 300px;
+                font-size: 3rem;
+                font-weight: bold;
+                padding: 6px 0px;
+                border-radius: 42px;
+            }
+    
+        }
+
+        .main{
+            display: flex;
+            .btn-continue{
+                display: none;
+            }
+        }
+
+        .options{
+            display: none;
+
+            div{
+                position: relative;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                margin-top: 100px;
+                gap: 20px;
+                width: 90%;
+
+                h3{
+                    font-size: 2rem;
+                }
+
+                button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 55px;
+                    height: 55px;
+                    padding: 6px;
+
+                    svg{
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                }
+                
+                .right{
+                    animation: moveR infinite ease 1s;
+
+                    @keyframes moveR {
+                        0%{
+                            translate: 3px;
+                        }
+
+                        50%{
+                            translate: 15px;
+                        }
+
+                        100%{
+                            translate: 3px;
+                        }
+                    }
+
+                    svg{
+                        transform:scaleX(-1);
+                    }
+                }
+
+                .left{
+                    animation: moveL infinite ease 1s;
+
+                    @keyframes moveL {
+                        0%{
+                            translate: -3px;
+                        }
+
+                        50%{
+                            translate: -15px;
+                        }
+
+                        100%{
+                            translate: -3px;
+                        }
+                    }
+                }
+            }
+
+            .save-btn{
+                display: none;
+                margin-top: 35%;
+                justify-content: center;
+            }
+        }
+
+    }
+
+    .buttons{
+        display: none;
+        width: 100%;
+        justify-content: center;
+        gap: 20%;
+        align-items: center;
+        padding: 0 18px;
+        
+        button{
+            display: flex;
+            font-size: 1.5rem;
+            padding: 12px 42px;
+            align-self: center;
+            border-radius: 8px;
+        }
+
+    }
+
+    .rules{
+        // grid
+        display: none;
+        width: 100%;
+        height: 100%;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+        "a"
+        "b"
+        "c";
+        justify-items: center;
+        align-items: center;
+
+        h2{
+            grid-area: a;
+            font-size: 4rem;
+        }
+
+        svg{
+            grid-area: b;
+            display: none;
+        }
+
+        button{
+            grid-area: c;
+            font-size: 4.5rem;
+            padding: 18px 32px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
+    //specific & queries
+.App{
+
+    .main .game-choice .version_original,
+    .main .game-choice .version_sheldon,
+    .main .game-result .up{
+
+        .paper{
+            border: 16px solid $paper;
+        }
+
+        .scissors{
+            border: 16px solid $scissor;
+        }
+        
+        .rock{
+            border: 16px solid $rock;
+        }
+
+        .spock{
+            border: 16px solid $spock;
+        }
+        
+        .lizard{
+            border: 16px solid $lizard;
+        }
+    }
+
+    button{
+        cursor: pointer;
+    }
+
+    .game-result .up button{
+        cursor: default;
+    }
+
+    h2,h3,h4,h5{
+        cursor: default;
+    }
+
+    @include querie-s{
+        max-width: 600px;
+        max-height: 700px;
+        border-radius: 12px;
+        padding: 24px 12px;
+    }
+}
+
+
