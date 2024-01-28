@@ -566,7 +566,7 @@ body{
         }
     }
 }
-    //specific & queries
+    //specific
 .App{
 
     .main .game-choice .version_original,
@@ -606,12 +606,16 @@ body{
         cursor: default;
     }
 
-    @include querie-s{
+}
+
+@include querie-s{
+
+    .App{
         max-width: 600px;
         max-height: 700px;
         border-radius: 12px;
         padding: 24px 12px;
     }
-}
 
+}
 
